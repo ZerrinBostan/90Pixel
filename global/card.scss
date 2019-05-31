@@ -1,0 +1,408 @@
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+@mixin shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin replace-text($image, $x: 50%, $y: 50%) {
+  text-indent: -99999em;
+  overflow: hidden;
+  text-align: left;
+  background: {
+    image: $image;
+    repeat: no-repeat;
+    position: $x $y;
+  }
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+
+.alignment {
+  font-family: $font-family;
+  margin-right: $cardr !important;
+  .jumbotron {
+    @include shadow(0 10px 30px 0 rgba(38, 78, 238, 0.1));
+    left: $cardr;
+    height: 460px;
+    width: 1170px;
+    padding: 0 !important;
+    button {
+      width: $bwidth;
+      height: $bheight;
+      margin: $top 0 0 100px;
+      @include border-radius(3px);
+      background-color: #1ed660;
+      color: $color-white;
+      button-span {
+        padding: 8px $number20 6px 23px;
+        color: $color-white;
+      }
+    }
+    .text {
+      margin-top: 11px;
+      font-weight: 600;
+      width: 628px;
+      height: 96px;
+      font-size: 36px;
+      line-height: 48px;
+      color: $color-white;
+    }
+    .circleimg {
+      .rounded-circle {
+        box-shadow: 0 0 0 3px $color-white;
+        width: $imgwidth;
+        height: $imgheight;
+        margin-top: 29px;
+      }
+    }
+    .ptagi {
+      margin-top: 24px;
+      color: $color-white;
+    }
+  }
+  .ptagi,
+  .text,
+  .rounded-circle {
+    margin-left: $jmarginl;
+  }
+  .interface {
+    z-index: 2;
+  }
+  .jumbotron-img {
+    @include replace-text(url("img/1d.jpg"), 0);
+    background-size: cover;
+    height: 460px;
+    width: 1170px;
+    position: absolute;
+    @include opacity(0.2);
+    z-index: 0;
+  }
+  .interface {
+    z-index: 1;
+  }
+}
+.jumbotron-img,
+.jumbotron {
+  @include border-radius($number15);
+}
+.cards {
+  width: 1170px;
+  margin-top: 64px;
+  @include border-radius($radius);
+  font-family: $font-family;
+}
+.card {
+  margin-left: 0px;
+  margin-bottom: 30px;
+  @include shadow(0 10px 30px 0 rgba(38, 78, 238, 0.1));
+  .card-img-top {
+    width: $imgWidth;
+    height: $imgHeight;
+  }
+  width: 370px;
+  height: 433px;
+  .rounded-circle {
+    position: absolute;
+    box-shadow: 0 0 0 3px $color-white;
+    background-color: $color-white;
+    width: 72px;
+    height: 72px;
+    z-index: 5;
+    top: 179px;
+    left: 149px;
+    right: 149px;
+  }
+  .card-name {
+    position: absolute;
+    top: 263px;
+    left: 135px;
+    right: 135px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .crdname {
+    font-size: calculate-rem(14px);
+    width: 117px;
+    height: 14px;
+    left: 126px;
+    top: 327px;
+    display: flex;
+    align-items: center;
+  }
+  .card-text {
+    width: 280px;
+    height: 56px;
+    line-height: 1.39;
+    position: absolute;
+    top: 306px;
+    left: 45px;
+    right: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .scolor,
+  .ptcolor {
+    display: flex;
+    align-items: center;
+  }
+  .ptcolor {
+    top: 350px;
+  }
+  .crddate {
+    width: 101px;
+    height: 25px;
+    top: 438px;
+  }
+  .card-date {
+    position: absolute;
+    top: 376px;
+    left: 135px;
+    right: 135px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 2.14;
+  }
+  .card-bg {
+    @include replace-text(url("img/dsub.jpg"), 0);
+    background-size: cover;
+    @include border-radius($radius);
+
+    background-color: $purplepalettecolor;
+    @include shadow(0 10px 30px 0 rgba(38, 78, 238, 0.1));
+  }
+  .cardzindex {
+    margin-left: -$number20;
+    margin-top: -$number20;
+    position: absolute;
+    height: 433px;
+    width: 370px;
+    @include opacity(0.2);
+    padding: 0;
+  }
+  .zvisibility {
+    top: -60px;
+    position: absolute;
+    z-index: 1;
+  }
+}
+.imgcard {
+  left: -$number15;
+  top: 58px;
+}
+.scolor,
+.pcolor,
+.ptcolor {
+  color: $color-white !important;
+}
+.text-muted {
+  line-height: 2.14;
+  color: $graytext;
+}
+.page-parent {
+  width: 1170px;
+  margin-top: 85px;
+  margin-bottom: 285px;
+  .page {
+    width: 366px;
+    .pagination {
+      font-family: sans-serif;
+      font-size: calculate-rem($fontsize);
+      font-weight: 500;
+      .page-item {
+        width: 50px;
+        height: 45px;
+        @include border-radius($radius);
+        .page-link {
+          color: $purplepalettecolor;
+        }
+      }
+      .first {
+        width: 130px;
+      }
+      .last {
+        width: 86px;
+      }
+    }
+  }
+}
+.page-item.active .page-link {
+  background-color: $purplepalettecolor !important;
+  border-color: $purplepalettecolor !important;
+}
+.jumbotron,
+.row {
+  height: 304px;
+  width: 1170px;
+}
+.jumbotron {
+  padding: 0 !important;
+  @include border-radius(10px);
+  background-color: $purplepalettecolor;
+  @include shadow;
+  .row {
+    margin: 0 !important;
+    font-family: $font-family;
+    .jumbotron-one-column {
+      line-height: 1.33;
+      width: 432px;
+      height: 144px;
+      left: 100px;
+      top: 74px;
+      bottom: 86px;
+      padding: 0 !important;
+      p {
+        font-size: 35px;
+        color: $color-white;
+      }
+    }
+    .jumbotron-two-column {
+      padding: 0 !important;
+      .emailbox {
+        top: 102px;
+        width: 470px;
+        height: 100px;
+        @include opacity(0.1);
+        @include border-radius($radius);
+        background-color: $background-color;
+        z-index: 2;
+      }
+      .arrowbox {
+        position: absolute;
+        z-index: 4;
+        width: 73px;
+        height: 60px;
+        @include border-radius($radius);
+        background-color: $purplepalettecolor;
+        left: 377px;
+        top: 120px;
+        .arrowfigure {
+          top: 14px;
+          position: relative;
+          left: -8px;
+          .link {
+            position: relative;
+            display: block;
+            padding: 1em ($arrow-size * 3) 1em 1em;
+
+            &:after,
+            &:before {
+              content: "";
+              display: block;
+              position: absolute;
+              transition: all 0.5s ease-in-out;
+            }
+            &:before {
+              top: 50%;
+              right: $arrow-size;
+              width: $arrow-size;
+              height: $arrow-size;
+              transform-origin: 50% 50%;
+              transform: translate(0, -($arrow-size / 2)) rotate(45deg);
+              box-shadow: inset -#{$arrow-border} $arrow-border 0 0 $color-white;
+              border-radius: 0 $arrow-size * 0.15 0 0;
+            }
+
+            &:after {
+              top: 50%;
+              right: 1em;
+              width: $arrow-size * 1.3;
+              height: $arrow-border;
+              transform: translate(0, -($arrow-border / 2));
+              background-color: $color-white;
+            }
+          }
+        }
+      }
+      .emailsub {
+        top: 60px;
+        z-index: 5;
+        left: 28px;
+        color: $emailplchldr;
+      }
+      .email {
+        position: absolute;
+        z-index: 3;
+        .form-control {
+          top: $number15;
+          left: $number15;
+          width: 440px !important;
+          height: 70px !important;
+          @include border-radius(7px);
+          border: solid 1px $colorwhitetone;
+          background-color: $color-white;
+        }
+      }
+      ::placeholder {
+        color: $emailplchldr;
+      }
+      .rectangletwo {
+        width: $rectanglew;
+        height: $rectangleh;
+      }
+      .rectangle {
+        left: 167px;
+        top: $top;
+        @include transform(rotate(-45deg));
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.06)
+        );
+        z-index: 2;
+      }
+      .rectangletwo {
+        position: absolute;
+        top: $top;
+        left: 270.6px;
+        @include transform(rotate(-45deg));
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0.06)
+        );
+        z-index: 1;
+      }
+    }
+  }
+}
+.jumbotron-zindex {
+  position: absolute;
+  z-index: 1;
+  top: 1980px;
+  padding: 0px;
+}
+.page-parent {
+  font-family: $font-family;
+}
+.col-md-6 {
+  padding: 0px;
+}
+.container {
+  @extend .col-md-6;
+  padding: 0px;
+  max-width: 1170px;
+}
+.interface,
+.ptcolor,
+.imgcard,
+.jumbotron-one-column,
+.jumbotron-two-column,
+.emailbox,
+.emailsub,
+.form-control,
+.rectangle {
+  position: relative;
+}

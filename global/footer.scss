@@ -1,0 +1,116 @@
+@mixin coltitle {
+  font-family: $font-family;
+  font-size: $number20;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.7;
+  letter-spacing: normal;
+  color: $flinkcolor;
+}
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); 
+}
+.coltitle1,
+.coltitle2,
+.coltitle3 {
+ @include coltitle;
+}
+.subtext1,
+.subtext2,
+.subtext3,
+.subtext4 {
+  p {
+    opacity: 0.8;
+    font-family: $font-family;
+    font-size: calculate-rem($fontsize);
+    color:$graytext !important;
+  }
+}
+.subtext2,.coltitle2{
+  position: relative;
+}
+.subtext2,
+.subtext3,
+.subtext4 {
+  line-height: 2;
+  top: 19.9px;
+}
+footer {
+  .row {
+    .colimg {
+      margin-right: 275px;
+    }
+    .coltitle2 {
+      left:$number20;
+      width: 104px;
+      height: 34px;
+    }
+    .coltitle2 {
+      width: 108px !important;
+      height: 34px;
+    }
+    .coltitle3 {
+      width: 122px;
+      height: 34px;
+      left: 22px;
+    }
+  }
+  .rowsub {
+    .subtext1 {
+      margin-right: 99.3px;
+      top: 26.7px;
+      p {
+        font-size: calculate-rem($fontsize);
+        width: 369px;
+        height: 117.8px;
+        right: 129.3px;
+        line-height: 1.76;
+      }
+    }
+    .subtext2 {
+      margin-right: 43.39px;
+      width: 138px;
+      height: 170px;
+    }
+    .subtext3 {
+      margin-right: 27.86px;
+      width: 108px;
+      height: 204px;
+    }
+    .subtext4 {
+      width: 166px;
+      height: 170.7px;
+    }
+  }
+  line {
+    width: 1918.5px;
+    height: 2px;
+    @include opacity(0.15);
+    border: solid 1px $graycolor;
+    top: 523.2px;
+  }
+}
+
+.textfooter {
+  width: 415px;
+  height: 30px;
+  @include opacity(0.6);
+  font-family: $font-family;
+   font-size: calculate-rem(36px);
+  font-size: $number15;
+  
+  margin-top: 23px !important;
+  margin-bottom: 25.8px !important;
+  margin-left: 753px;
+  color: $flinkcolor;
+}
+.line {
+  width: 1918.5px;
+  height: 2px;
+  opacity: 0.15;
+  border: solid 1px $graycolor;
+  top: 523.2px;
+}
